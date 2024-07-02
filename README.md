@@ -13,6 +13,6 @@
 
 - [github: @Khian-Code-Gun](https://github.com/Khian-Code-Gun)
 - [tiktok: @khian.code.gun](https://www.tiktok.com/@khian.code.gun)
-- [IG: khian.code.gun] ()
+- [IG: khian.code.gun] (https://www.instagram.com/khian.code.gun?igsh=MTl3Ynhvd2xmaTA0MQ==)
 
 
