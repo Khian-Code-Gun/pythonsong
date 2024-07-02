@@ -1,27 +1,61 @@
 import time
-import sys
 
-songname = "\033[38;2;255;165;0m-- รักคุณเข้าอีกแล้ว --\033[0m"
-lyrics = (
-    ("เก็บเพลงรักนี้ให้เป็นของขวัญ", 3.3),
-    ("ให้เธอได้รับได้รู้หัวใจของฉัน", 2.7),
-    ("แม้คืนวันจะเปลี่ยนแปลงสักแค่ไหน", 5.2),
-    ("แต่ใจของฉันที่รักเธอนั้น", 3.6),
-    ("ต่อให้ต้องลงนรกหรือขึ้นสรวงสวรรค์", 3.3),
-    ("ฉันก็จะไม่มีวันมอบให้ใคร", 5.1),
-    ("จะมีเพียงเธอแค่เพียงคนเดียว", 3.9),
-    ("และจะมีแต่เธอ เธอแค่เพียงคนเดียว", 3.2),
-    ("และจะเป็นเพียงคนเดียวเสมอไป", 5.2),
-    ("ที่ฉันฝากชีวิต ทั้งหมดไว้", 7.1),
-    ("โดยไม่มีทางทวงกลับคืน", 4.2),
+from rich import box
+from rich.console import Console
+from rich.live import Live
+from rich.table import Table
+
+class Song:
+  def __init__(self, songName: str, singer: str, lysics: tuple):
+    self.songName = songName
+    self.singer = singer
+    self.lysics = lysics
+    self.tiktokAccount = '<Khian Code Gun />'
+
+  def display_lysics(self):
+    table = Table(
+      box = box.ROUNDED,
+      width = 40,
+      border_style = '#EB8222'
+    )
+
+    table.add_column(
+      self.tiktokAccount, 
+      justify='center',
+      style = '')
+
+    with Live(table, refresh_per_second=1):
+      for line, delay in self.lysics: 
+          table.add_row(line+'\n\n')
+          time.sleep(delay)
+
+    
+    Console().print(
+      '\n' + self.songName, 
+      justify='center',
+      style='italic #EB8222',
+      width=40
+    )
+    Console().print(
+      self.singer,
+      justify='center',
+      style='italic #F4F2EB',
+      width=40
+    )
+
+Song2 = Song(
+  songName= '-- ไม่ต้องรู้ว่าเราคบกันแบบไหน --',
+  singer = 'Mind 4EVE x DGERRARD',
+  lysics= (    
+    ('ไม่ต้องรู้ว่าเราคบกันแบบไหน', 6),
+    ('ไม่อาจหาคำคำไหนมาเพื่ออธิบาย', 8),
+    ('ไม่ต้องรักเหมือนคนรักก็สุขหัวใจ', 6),
+    ('เพียงแค่เราเข้าใจ เพียงแค่เราเข้าใจ', 5),
+    ('ไม่ต้องรู้ว่าเราคบกันแบบไหน', 6),
+    ('ไม่ต้องหาคำคำไหนมาเพื่ออธิบาย', 5),
+    ('ไม่ต้องรักเหมือนคนรักก็สุขหัวใจ', 6),
+    ('เพียงแค่เราเข้าใจ ก็เหนือคำอื่นใดในโลกนี้', 3),
+  )
 )
 
-for line, delay in lyrics:
-    dpl = delay / len(line)
-    for char in line:
-        print(char, end='')
-        sys.stdout.flush()
-        time.sleep(dpl)
-    print('\n')
-
-print(songname + '\n\n< Khian Code Gun />')
+Song2.display_lysics()
