@@ -12,6 +12,7 @@
 ## Authors
 
 - [github: @Khian-Code-Gun](https://github.com/Khian-Code-Gun)
-- [tiktok: @Khian Code Gun](https://www.tiktok.com/@khian.code.gun)
+- [tiktok: @khian.code.gun](https://www.tiktok.com/@khian.code.gun)
+- [IG: khian.code.gun] ()
 
 
